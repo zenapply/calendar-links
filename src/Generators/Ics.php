@@ -10,7 +10,7 @@ use Spatie\CalendarLinks\Generator;
  */
 class Ics implements Generator
 {
-    public function generate(Link $link): string
+    public function generate(Link $link)
     {
         $url = [
             'BEGIN:VCALENDAR',
@@ -45,13 +45,13 @@ class Ics implements Generator
     }
 
     /** @see https://tools.ietf.org/html/rfc5545.html#section-3.3.11 */
-    protected function escapeString(string $field): string
+    protected function escapeString($field)
     {
         return addcslashes($field, "\n,;");
     }
 
     /** @see https://tools.ietf.org/html/rfc5545#section-3.8.4.7 */
-    protected function generateEventUid(Link $link): string
+    protected function generateEventUid(Link $link)
     {
         return md5($link->from->format(\DateTime::ATOM).$link->to->format(\DateTime::ATOM).$link->title.$link->address);
     }

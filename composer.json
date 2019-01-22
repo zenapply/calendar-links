@@ -1,35 +1,35 @@
 {
-    "name": "spatie/calendar-links",
+    "name": "zenapply/calendar-links",
     "description": "Generate add to calendar links for Google, iCal and other calendar systems",
     "keywords": [
-        "spatie",
+        "zenapply",
         "calendar-links"
     ],
-    "homepage": "https://github.com/spatie/calendar-links",
+    "homepage": "https://github.com/zenapply/calendar-links",
     "license": "MIT",
     "authors": [
         {
             "name": "Sebastian De Deyne",
-            "email": "sebastian@spatie.be",
-            "homepage": "https://spatie.be",
+            "email": "sebastian@zenapply.be",
+            "homepage": "https://zenapply.be",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": "^5.5.9"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0",
-        "spatie/phpunit-snapshot-assertions": "^1.0"
+        "zenapply/phpunit-snapshot-assertions": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\CalendarLinks\\": "src"
+            "Zenapply\\CalendarLinks\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\CalendarLinks\\Test\\": "tests"
+            "Zenapply\\CalendarLinks\\Test\\": "tests"
         }
     },
     "scripts": {

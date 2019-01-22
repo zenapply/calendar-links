@@ -12,12 +12,14 @@ use Spatie\CalendarLinks\Generator;
 class WebOutlook implements Generator
 {
     /** {@inheritdoc} */
-    public function generate(Link $link): string
+    public function generate(Link $link)
     {
         $url = 'https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addevent';
 
-        $utcStartDateTime = (clone $link->from)->setTimezone(new DateTimeZone('UTC'));
-        $utcEndDateTime = (clone $link->to)->setTimezone(new DateTimeZone('UTC'));
+        $from = (clone $link->from);
+        $to = (clone $link->to);
+        $utcStartDateTime = $from->setTimezone(new DateTimeZone('UTC'));
+        $utcEndDateTime = $to->setTimezone(new DateTimeZone('UTC'));
         $url .= '&startdt='.$utcStartDateTime->format('Ymd\THis');
         $url .= '&enddt='.$utcEndDateTime->format('Ymd\THis');
         if ($link->allDay) {
