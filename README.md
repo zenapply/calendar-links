@@ -6,6 +6,8 @@
 [![StyleCI](https://styleci.io/repos/103638080/shield?branch=master)](https://styleci.io/repos/103638080)
 [![Total Downloads](https://img.shields.io/packagist/dt/zenapply/calendar-links.svg?style=flat-square)](https://packagist.org/packages/zenapply/calendar-links)
 
+## This was forked from [spatie/calendar-links](https://github.com/spatie/calendar-links) to support php >=5.5.9
+
 Using this package you can generate links to add events to calendar systems. Here's a quick example:
 
 ```php
