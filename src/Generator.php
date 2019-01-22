@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\CalendarLinks;
+namespace Zenapply\CalendarLinks;
 
 interface Generator
 {

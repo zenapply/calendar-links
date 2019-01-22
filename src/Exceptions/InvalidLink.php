@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\CalendarLinks\Exceptions;
+namespace Zenapply\CalendarLinks\Exceptions;
 
 use DateTime;
 use Exception;

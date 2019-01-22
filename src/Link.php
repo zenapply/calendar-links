@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\CalendarLinks;
+namespace Zenapply\CalendarLinks;
 
 use DateTime;
-use Spatie\CalendarLinks\Generators\Ics;
-use Spatie\CalendarLinks\Generators\Yahoo;
-use Spatie\CalendarLinks\Generators\Google;
-use Spatie\CalendarLinks\Generators\WebOutlook;
-use Spatie\CalendarLinks\Exceptions\InvalidLink;
+use Zenapply\CalendarLinks\Generators\Ics;
+use Zenapply\CalendarLinks\Generators\Yahoo;
+use Zenapply\CalendarLinks\Generators\Google;
+use Zenapply\CalendarLinks\Generators\WebOutlook;
+use Zenapply\CalendarLinks\Exceptions\InvalidLink;
 
 /**
  * @property-read string $title

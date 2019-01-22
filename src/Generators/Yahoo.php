@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\CalendarLinks\Generators;
+namespace Zenapply\CalendarLinks\Generators;
 
 use DateTimeZone;
-use Spatie\CalendarLinks\Link;
-use Spatie\CalendarLinks\Generator;
+use Zenapply\CalendarLinks\Link;
+use Zenapply\CalendarLinks\Generator;
 
 /**
  * @see https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/yahoo.md
