@@ -15,10 +15,15 @@ class Ics implements Generator
         $url = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'BEGIN:VEVENT',
-            'UID:'.$this->generateEventUid($link),
-            'SUMMARY:'.$link->title,
         ];
+
+        if ($link->prodid) {
+            $url[] = 'PRODID:'.$link->prodid;
+        }
+
+        $url[] = 'BEGIN:VEVENT';
+        $url[] = 'UID:'.$this->generateEventUid($link);
+        $url[] = 'SUMMARY:'.$link->title;
 
         if ($link->allDay) {
             $dateTimeFormat = 'Ymd';
@@ -30,10 +35,6 @@ class Ics implements Generator
             $url[] = 'DTEND;TZID='.$link->to->format($dateTimeFormat);
         }
 
-        if ($link->prodid) {
-            $url[] = 'PRODID:'.$link->prodid;
-        }
-
         if ($link->description) {
             $url[] = 'DESCRIPTION:'.$this->escapeString($link->description);
         }
@@ -43,12 +44,13 @@ class Ics implements Generator
 
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
+        return $url;
     }
 
     public function generateRaw(Link $link)
     {
         $components = $this->compile($link);
-        return implode("\n", $components);
+        return implode("\r\n", $components);
     }
 
     public function generate(Link $link)
