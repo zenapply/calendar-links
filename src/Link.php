@@ -37,6 +37,8 @@ class Link
     /** @var string */
     protected $address;
 
+    protected $prodid;
+
     public function __construct($title, DateTime $from, DateTime $to, $allDay = false)
     {
         $this->title = $title;
@@ -93,6 +95,13 @@ class Link
         return $this;
     }
 
+    public function prodid($prodid)
+    {
+        $this->prodid = $prodid;
+
+        return $this;
+    }
+
     public function google()
     {
         return (new Google())->generate($this);
@@ -101,6 +110,11 @@ class Link
     public function ics()
     {
         return (new Ics())->generate($this);
+    }
+
+    public function ics_raw()
+    {
+        return (new Ics())->generateRaw($this);
     }
 
     public function yahoo()

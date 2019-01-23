@@ -10,7 +10,7 @@ use Zenapply\CalendarLinks\Generator;
  */
 class Ics implements Generator
 {
-    public function generate(Link $link)
+    protected function compile(Link $link)
     {
         $url = [
             'BEGIN:VCALENDAR',
@@ -30,6 +30,10 @@ class Ics implements Generator
             $url[] = 'DTEND;TZID='.$link->to->format($dateTimeFormat);
         }
 
+        if ($link->prodid) {
+            $url[] = 'PRODID:'.$link->prodid;
+        }
+
         if ($link->description) {
             $url[] = 'DESCRIPTION:'.$this->escapeString($link->description);
         }
@@ -39,8 +43,18 @@ class Ics implements Generator
 
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
-        $redirectLink = implode('%0d%0a', $url);
+    }
 
+    public function generateRaw(Link $link)
+    {
+        $components = $this->compile($link);
+        return implode("\n", $components);
+    }
+
+    public function generate(Link $link)
+    {
+        $components = $this->compile($link);
+        $redirectLink = implode('%0d%0a', $components);
         return 'data:text/calendar;charset=utf8,'.$redirectLink;
     }
 
